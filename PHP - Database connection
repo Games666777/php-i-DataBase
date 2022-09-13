@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset ="UTF-8">
+<title></title>
+</head>
+<boby>
+      <?php
+             $conn = mysqli_connect("localhost", "Simso", "localhost");
+               if ($conn === false) {
+         die("Ошибка: " . mysqli_connect_error());
+      } 
+         echo "Подключение успешно установлено";
+              mysqli_close($conn);
+            ?>
+  </boby>
+</html>
