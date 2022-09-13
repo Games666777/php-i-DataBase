@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset ="UTF-8">
+<title></title>
+</head>
+<boby>
+ <?php
+//$conn = new mysqli("localhost", "Simso", "localhost", "агентство нерухомість");
+$host = 'localhost';
+$user = 'Simso';
+$pass = 'localhost';
+$db_name = 'агентство нерухомість'
+$link = mysqli_connect($host, $user, $db_name);
+echo 'Yes ';
+  if (!$link) {
+    echo 'Не могу соединиться с БД. Код ошибки:' . mysqli_connect_errno() . ',
+    ошибка:' . mysqli_connect_error();
+    exit;
+}
+//Вывод данных из БД
+$sql = "SELECT * FROM `об'єкт`";
+if($result = $link->query($sql)){
+    $rowsCount = $result->num_rows; // количество полученных строк
+    echo "<p>Получено объектов: $rowsCount</p>";
+    echo "<table><tr><th>ID об'єкта</th><th>ID власника</th><th>Телефон</th><th>Площа</th><th>Вартість</th><th>Адреса</th></tr>";
+    foreach($result as $row){
+        echo "<tr>";
+            echo "<td>" . $row["ID об'єкта"] . "</td>";
+            echo "<td>" . $row["ID власника"] . "</td>";
+            echo "<td>" . $row["Телефон"] . "</td>";
+            echo "<td>" . $row["Площа"] . "</td>";
+            echo "<td>" . $row["Вартість"] . "</td>";
+            echo "<td>" . $row["Адреса"] . "</td>";
+
+        echo "</tr>";
+    }
+    echo "</table>";
+    $result->free();
+} else{
+    echo "Ошибка: " . $link->error;
+}
+$link->close();
+?>
+</body>
+</html>
+
