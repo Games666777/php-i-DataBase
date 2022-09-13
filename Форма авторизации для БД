@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset ="UTF-8">
+<title></title>
+</head>
+<boby>
+<?php
+?>
+<p> <a href ='1.php'>ВЕРНУТЬСЯ</a></p>
+<p> Форма авторизации </p>
+<from action = "action_enter.php" name ="myform" method="POST">
+     username: <input type="text" name="user"/></br>
+     password: <input type="text" name="pass"/></br>
+ <input type="sumbit" name="sumbit" value="Voiti"/>
+</form>
+</form>
+</boby>
+</html>
